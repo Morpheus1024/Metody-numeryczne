@@ -133,10 +133,13 @@ ax.plot(x, cos_values, label='cos(x)', color='red')
 
 # Dodawanie etykiet i tytułu
 ax.set(xlabel='x', ylabel='y', title='Wykres funkcji sin(x) i cos(x)')
+
 # Dodawanie legendy
 ax.legend()
+
 # Dodawanie siatki
 ax.grid(True)
+
 # Wyświetlanie wykresu
 plt.show()
 ```
