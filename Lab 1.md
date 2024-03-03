@@ -114,12 +114,15 @@ print(f"Name: {name}, Age: {age}")
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
+
 # Przykładowe dane
 x = np.linspace(0, 2*np.pi, 100)
 sin_values = np.sin(x)
 cos_values = np.cos(x)
+
 # Tworzenie obiektów figury i osi
 fig, ax = plt.subplots()
+
 # Rysowanie dwóch przebiegów na jednym wykresie z różnymi kolorami
 ax.plot(x, sin_values, label='sin(x)', color='blue')
 ax.plot(x, cos_values, label='cos(x)', color='red')
@@ -127,7 +130,6 @@ ax.plot(x, cos_values, label='cos(x)', color='red')
 # Rysowanie dwóch przebiegów na jednym wykresie z różnymi stylami linii
 #ax.plot(x, sin_values, label='sin(x)', linestyle='-', color='blue')  # Solid line
 #ax.plot(x, cos_values, label='cos(x)', linestyle='--', color='red')  # Dashed line
-
 
 # Dodawanie etykiet i tytułu
 ax.set(xlabel='x', ylabel='y', title='Wykres funkcji sin(x) i cos(x)')
