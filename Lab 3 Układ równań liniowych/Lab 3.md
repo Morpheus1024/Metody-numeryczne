@@ -83,6 +83,7 @@ l_{31} & l_{32} & 1
 <center>
 
 $L[Ux-d]=Ax-b$
+
 $LU=A$ oraz $Ld=B$
 </center>
 
@@ -152,4 +153,5 @@ L, U = lu_decomposition(A)
 4. $0 = Q_ac_3+E_{34}(c_3-c_4)-Q_dc_4-E_{24}(c_2-c_4)$
 
 **$$Ac =W,$$**
+
 **gdzie na miacierz $A$ składają się składniki $Q$ jak i $E$**
