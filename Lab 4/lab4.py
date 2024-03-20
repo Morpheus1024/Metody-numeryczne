@@ -48,11 +48,3 @@ if __name__ =="__main__":
     plt.plot(np.linspace(0,42,43), x_i)
     plt.plot(np.linspace(0,42,43), e, 'r')
     plt.show()
-
-    
-
-
-
-
-
-
