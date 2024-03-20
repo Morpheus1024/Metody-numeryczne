@@ -13,6 +13,7 @@ Chcąc obliczyc pierwiastki funkcji $f(x)=0$ przekształcamt wzór do postaci $g
 
 ### Kryterium jakości
 W celu sprawdzenia postępów stosuje się oszacowanie błędu względnego:
+
 $$
 e = |\frac{x_{i+1}-x_{i}}{x_{i+1}}| * 100\%
 $$
@@ -21,6 +22,7 @@ $$
 Zwróćmy uwagę, że prawdziwy błąd względny z i-tej iteracji stanowi około 0.5 −
 0.6 wartości błędu z iteracji i−1. Jest to własność metody punktu stałego i
 nazywa się ona **zbieżnością liniową**. Można wykazać, że błąd względny $i+1$ iteracji jest proporcjonalny do $i$ iteracji oraz pochodnej funckcji $g(x)$:
+
 $$
 E_{i+1} = g'(x)E_i
 $$
