@@ -1,0 +1,60 @@
+# -[ ] jak zaimplentować metodę iteracyjnego podstawiania
+# - [ ] jak zaimplentować metodę Newtona-Raphsona (korzystając z rozwinięcia Taylor’a ograniczonego do pierwszej pochodnej oraz macierzy Jacobiego)
+#     zapoznać się z funkcjami scipy.optimize do szukania miejsc zerowych funkcji (np. bisekcji)
+
+# Metody numeryczne Lab 4
+
+## Metoda iteracyjnego podstawiania - Metoda punktu stałego
+
+### Teoria i założenia
+Metoda służy do iteracyjnego przybliżenia wartości pierwiastka danej funkcji. Nie wymaga znajomości przedziału jego wystąpienia. Metoda nie zawsze zbiega do właściwejgo rozwiazania.
+
+Chcąc obliczyc pierwiastki funkcji $f(x)=0$ przekształcamt wzór do postaci $g(x)=x$ poprzez dodanie obustronne $x$. Znając "starą wartość" $x$ możemy wyznaczyć nową: $x_{i+1} = g(x_i)$. Możemy rozpocząć iterowanie rozwiązanie poprzez podstawienie na początku np. $x_0 = 0$. 
+
+### Kryterium jakości
+W celu sprawdzenia postępów stosuje się oszacowanie błędu względnego:
+$$
+e = |\frac{x_{i+1}-x_{i}}{x_{i+1}}| * 100\%
+$$
+
+### Monotoniczność
+Zwróćmy uwagę, że prawdziwy błąd względny z i-tej iteracji stanowi około 0.5 −
+0.6 wartości błędu z iteracji i−1. Jest to własność metody punktu stałego i
+nazywa się ona **zbieżnością liniową**. Można wykazać, że błąd względny $i+1$ iteracji jest proporcjonalny do $i$ iteracji oraz pochodnej funckcji $g(x)$:
+$$
+E_{i+1} = g'(x)E_i
+$$
+
+Monotoniczność błędu zależy od wartości $g'(x)$
+- $|g'(x) <1|$ - błąd się zmniejsza
+- $|g'(x) >1|$ - błąd się zwiększa
+  
+Jeżeli pochodna jest dodatnia to wszystkie błędy będą miały ten sam znak, a gdy jest ujemna, to znak będzie się zminieniał za każdą iteracją.
+
+### Implementacja w Pythonie
+
+```python
+import numpy as np
+
+def funkcja(x):
+    #x_i+1 = e^(-x_i)
+    return np.exp(-x)
+
+def iterative_substitution(ilosc_iteracji, x_0):
+    
+    x_i=[]
+    e = []
+
+    for i in range(ilosc_iteracji):
+        if i==0:
+            x_i.append(x_0)
+            e.append("")
+        else:
+            x_i.append(funkcja(x_i[i-1]))
+            e.append(abs(x_i[i]-x_i[i-1])/x_i[i]*100)
+    return x_i, e
+
+if __name__ == "__main__":
+    print(iterative_substitution(10, 0))
+```
+
