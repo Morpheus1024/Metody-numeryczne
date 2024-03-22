@@ -6,7 +6,10 @@
 Metoda opera się na przekształceniu układu rówań w taki sposób, by każde równanie opisywało daną niewiadomą. Przykładowe równania:
 
 $$
-x_1 = \sqrt{x_1*x_2}+10 x_2^2\\
+x_1 = \sqrt{x_1*x_2}+10 x_2^2
+$$
+
+$$
 x_2 = x_1^2+\frac{1}{\sqrt{x_2}}
 $$
 
