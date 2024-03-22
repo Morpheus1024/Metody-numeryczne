@@ -9,6 +9,7 @@ $$
 x_1 = \sqrt{x_1*x_2}+10 x_2^2\\
 x_2 = x_1^2+\frac{1}{\sqrt{x_2}}
 $$
+
 Następnie podstawiamy przykładowe wartości do równiani np. $x_1=1$, $x_2=1.5$. Otrzymujemy w ten sposób nowe wartosći szukanych zmiennych i ponawiamy podstawienie.
 **Trzeba pamiętać, by do równania z $x_2$ podstawić wyliczoną wartość $x_1$.**
 Niestety, metoda nie zawsze zbiega do prawidłowych wartości równania. Dużo zależy od bliskości wartości początkowych od tych rzecywistych jak i postaci równań opisujących dane niewiadome.
@@ -68,7 +69,9 @@ f_{2,i+1} = f_{2,i}+(x_{1,i+1}-x_{1,i})\frac{df_{2,i}}{dx_{1}}+(x_{2,i+1}-x_{2,i
 Po podstawieniu $f_{1,i+1}=0$ i $f_{2,i+1}=0$ otrzymujemy przekształcone równania:
 
 $$
-x_{1,i+1} = x_{1,i} - \frac{f_{1,i}\frac{df_{2,i}}{dx_2} - f_{2,i}\frac{df_{1,i}}{dx_2}}{det(J)}\\
+x_{1,i+1} = x_{1,i} - \frac{f_{1,i}\frac{df_{2,i}}{dx_2} - f_{2,i}\frac{df_{1,i}}{dx_2}}{det(J)}
+$$
+$$
 x_{2,i+1} = x_{2,i} - \frac{f_{2,i}\frac{df_{1,i}}{dx_1} - f_{1,i}\frac{df_{2,i}}{dx_1}}{det(J)}
 $$
 gdzie $det(J)$ to wyznacznik macierzy Jacobiego.
