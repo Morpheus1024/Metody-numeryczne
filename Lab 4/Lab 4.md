@@ -81,6 +81,7 @@ Po podstawieniu $f_{1,i+1}=0$ i $f_{2,i+1}=0$ otrzymujemy przekształcone równa
 $$
 x_{1,i+1} = x_{1,i} - \frac{f_{1,i}\frac{df_{2,i}}{dx_2} - f_{2,i}\frac{df_{1,i}}{dx_2}}{det(J)}
 $$
+
 $$
 x_{2,i+1} = x_{2,i} - \frac{f_{2,i}\frac{df_{1,i}}{dx_1} - f_{1,i}\frac{df_{2,i}}{dx_1}}{det(J)}
 $$
@@ -133,11 +134,14 @@ if __name__ == '__main__':
 
     print(table) 
 ```
+## scipy.optimize
 
-### scipy.optimize.newton
+### scipy.optimize.newton i scipy.optimize.bisect
 
 ```python
 from scipy.optimize import newton
+from scipy.optimize import bisect
+import prettytable as pt
 import numpy as np
 
 # Definiowanie funkcji, dla której chcemy znaleźć miejsca zerowe
@@ -145,9 +149,24 @@ def funkcja(x):
     return x**3 - 6*x**2 + 11*x - 6
 
 # Szukanie miejsca zerowego za pomocą metody Newtona
+newton_x =[]
+bisect_x = []
 
+table = pt.PrettyTable()
 for i in np.arange(0, 7, 0.25):
     miejsce_zerowe = newton(funkcja, i)
-    print(f"Miejsce zerowe dla x = {i}: {miejsce_zerowe}")
+    newton_x.append(miejsce_zerowe)
+    # print(f"Miejsce zerowe dla x = {i}: {miejsce_zerowe}")
 
+table.add_column("x", np.arange(0, 7, 0.25))
+table.add_column("newton", newton_x)
+
+for i in np.arange(0, 7, 0.25):
+    miejsce_zerowe = bisect(funkcja, 0, 7) ## wskazuje tylko jedno miejsce zerowe
+    bisect_x.append(miejsce_zerowe)
+    # print(f"Miejsce zerowe dla x = {i}: {miejsce_zerowe}")
+
+table.add_column("bisect", bisect_x)
+
+print(table)
 ```
