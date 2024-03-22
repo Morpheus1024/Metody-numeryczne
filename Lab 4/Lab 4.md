@@ -122,3 +122,39 @@ if __name__ =="__main__":
 ```
 
 ## scipy.optimize
+
+### scipy.optimize.bisect
+
+```python
+from scipy.optimize import bisect
+
+# Definiowanie funkcji, dla której chcemy znaleźć miejsca zerowe
+def funkcja(x):
+    return x**3 - 6*x**2 + 11*x - 6
+
+# Definiowanie przedziałów, w których szukamy miejsca zerowego
+przedzialy = [(-10,10)] #muszą być różne znaki po obu stronach przedziału
+
+# Szukanie miejsca zerowego dla każdego przedziału
+for przedzial in przedzialy:
+    miejsce_zerowe = bisect(funkcja, przedzial[0], przedzial[1])
+    print(f"Miejsce zerowe w przedziale {przedzial}: {miejsce_zerowe}")
+```
+
+### scipy.optimize.newton
+
+```python
+from scipy.optimize import newton
+import numpy as np
+
+# Definiowanie funkcji, dla której chcemy znaleźć miejsca zerowe
+def funkcja(x):
+    return x**3 - 6*x**2 + 11*x - 6
+
+# Szukanie miejsca zerowego za pomocą metody Newtona
+
+for i in np.arange(0, 7, 0.25):
+    miejsce_zerowe = newton(funkcja, i)
+    print(f"Miejsce zerowe dla x = {i}: {miejsce_zerowe}")
+
+```
