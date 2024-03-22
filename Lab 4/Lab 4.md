@@ -85,6 +85,7 @@ $$
 $$
 x_{2,i+1} = x_{2,i} - \frac{f_{2,i}\frac{df_{1,i}}{dx_1} - f_{1,i}\frac{df_{2,i}}{dx_1}}{det(J)}
 $$
+
 gdzie $det(J)$ to wyznacznik macierzy Jacobiego.
 
 ### Implementacja w pythonie przy użyciu rozwinięcia Taylora do pierwszej pochodnej i macierzy Jackobego
