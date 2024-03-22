@@ -62,12 +62,19 @@ $$
 
 Do oszacowania wartości funkcji w kolejnym punkcie iteracji można użyć następującego wzoru:
 
-$$f(x_{i+1})=f(x_i)+(x_{i+1}-x_{i})f'(x_i)$$
+$$
+f(x_{i+1})=f(x_i)+(x_{i+1}-x_{i})f'(x_i)
+$$
 
 Dla układu wielu zmiennych równanie przyjmuje następującą postać:
 
-$$f_{1,i+1} = f_{1,i}+(x_{1,i+1}-x_{1,i})\frac{df_{1,i}}{dx_{1}}+(x_{2,i+1}-x_{2,i})\frac{df_{1,i}}{dx_{2}}\\
-f_{2,i+1} = f_{2,i}+(x_{1,i+1}-x_{1,i})\frac{df_{2,i}}{dx_{1}}+(x_{2,i+1}-x_{2,i})\frac{df_{2,i}}{dx_{2}}$$
+$$
+f_{1,i+1} = f_{1,i}+(x_{1,i+1}-x_{1,i})\frac{df_{1,i}}{dx_{1}}+(x_{2,i+1}-x_{2,i})\frac{df_{1,i}}{dx_{2}}
+$$
+
+$$
+f_{2,i+1} = f_{2,i}+(x_{1,i+1}-x_{1,i})\frac{df_{2,i}}{dx_{1}}+(x_{2,i+1}-x_{2,i})\frac{df_{2,i}}{dx_{2}}
+$$
 
 Po podstawieniu $f_{1,i+1}=0$ i $f_{2,i+1}=0$ otrzymujemy przekształcone równania:
 
