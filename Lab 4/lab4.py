@@ -1,50 +1,48 @@
-# metoda iNewtona - Ralphsona dla funkcji f(x) = e^(-x) - x
-# użycie szeregu taylora do przybliżenia pochodnej i macierzy Jackobego
 import numpy as np
-import prettytable as pt
 import matplotlib.pyplot as plt
+import prettytable as pt
 
-# dla f(x) = x^10 -1
+def uklad_rownan(x1,x2):
 
-def funkcja(x):
-    #x_i+1 = x_i - (x_i^10-1)/(10x_i^9)
-    return x- (x**10 - 1)/pochodna(x)
+    f1 =x1**2 + x2*x1-10
+    f2= x2+3*x1*x2**2-57
 
-def pochodna(x):
-    return 10*x**9
+    ## macierz jakobiego:
 
-def taylor(a, x):
-    #f(x) = f(a) +  (x-a)f'(a)
-    return funkcja(a) + pochodna(a)*(x-a)
+    df1_dx1=2*x1+x2
+    df1_dx2=x1
 
-def jacobian(x):
-    #macierz Jacobiego - macierz o wielkości 1x1 to pochodna
-    return pochodna(x)
+    df2_dx1=3*x2**2
+    df2_dx2=1+6*x1*x2
 
-def NR(x_0, ilosc_iteracji):
+    ## wyznacznik jakcobiego:
 
-    x_i =[]
-    e=[]
+    detJ=df1_dx1*df2_dx2-df1_dx2*df2_dx1
 
-    for i in range(ilosc_iteracji+1):
-        if i==0:
-            x_i.append(x_0)
-            e.append(100)
-        else:
-            x_i.append(funkcja(x_i[i-1]))
-            e.append(abs(x_i[i]-x_i[i-1])/x_i[i]*100)
-    return x_i, e
-    
-if __name__ =="__main__":
+    x1_new = x1- (f1*df2_dx2-f2*df1_dx2)/detJ
+    x2_new = x2- (f2*df1_dx1-f1*df2_dx1)/detJ
 
-    x_i,e = NR(0.5, 42)
-    pt1 = pt.PrettyTable()
-    pt1.add_column("i", np.linspace(0,42,43))
-    pt1.add_column("x_i", x_i)
-    pt1.add_column("e%", e)
+    return x1_new,x2_new
 
-    print(pt1)
 
-    plt.plot(np.linspace(0,42,43), x_i)
-    plt.plot(np.linspace(0,42,43), e, 'r')
-    plt.show()
+if __name__ == '__main__':
+
+    x1=1.5
+    x2=3.5
+
+    x1_values=[]
+    x2_values=[]
+
+    iteracje=10
+
+    table = pt.PrettyTable()
+    table.field_names = ["Iteracja", "x1", "x2"]
+
+    for i in range(iteracje+1):
+        x1,x2=uklad_rownan(x1,x2)
+        x1_values.append(x1)
+        x2_values.append(x2)  
+        table.add_row([i,x1,x2])
+
+    print(table) 
+
