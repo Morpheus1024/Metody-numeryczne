@@ -1,7 +1,3 @@
-# -[ ] jak zaimplentować metodę iteracyjnego podstawiania
-# - [ ] jak zaimplentować metodę Newtona-Raphsona (korzystając z rozwinięcia Taylor’a ograniczonego do pierwszej pochodnej oraz macierzy Jacobiego)
-#     zapoznać się z funkcjami scipy.optimize do szukania miejsc zerowych funkcji (np. bisekcji)
-
 # Metody numeryczne Lab 4
 
 ## Metoda iteracyjnego podstawiania - Metoda punktu stałego
