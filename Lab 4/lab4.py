@@ -114,7 +114,6 @@ axs[1,1].set_ylim(0.94, 0.95)
 # Znaleźć jedno rozwiązanie układu
 ## scipy.optimize.bisection
 
-
 # W pobliży x = 0.108:
 print("\n   Metoda bisekcji ze scipy:")
 solution = bisect(system, 0, 0.2)
@@ -127,7 +126,6 @@ solution = bisect(system, 1.5, 1.8)
 print(f"x3 = {solution},  y3 = {f1(solution)}")
 print()
       
-
 ## metoda iteracyjnego powstawienia
 x1, y1 = 0.1, 0
 ilosc_iteracji=10
@@ -136,7 +134,6 @@ for i in range(ilosc_iteracji+1):
     x1, y1 = iteracyjne_podstawienie(x1, y1)
 
 print(f"    Metoda punltu stacjonarnego po 100 iteracjach: \nx={x1}, y={y1}")
-
 
 #Metoda Newtona-Raphsona
 print("\n   Metoda N-R:")
@@ -149,12 +146,10 @@ for i in x:
         miejsce_zerowe = newton(system,i)
         print(f"x = {miejsce_zerowe}, y = {f1(miejsce_zerowe)}")
 
-
 ## implementacja własna
-print("\nNR implementacja własna")
+print("\n   NR implementacja własna")
 
 x2 = 0.4
-y2 = 0.4
 
 for i in range(ilosc_iteracji+1):
     #x2,y2 = NR_implementacja_wlasna(x2, y2)
@@ -162,6 +157,5 @@ for i in range(ilosc_iteracji+1):
     x2 = NR_implementacja_wlasna(x2)
 
     print(x2, f1(x2))
-
 
 plt.show()
